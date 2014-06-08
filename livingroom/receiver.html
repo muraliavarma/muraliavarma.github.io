@@ -37,9 +37,10 @@ limitations under the License.
     <title>Cast Hello Text</title>
   </head>
   <body>
-	<DIV id="message">Talk to me</DIV>
+	<DIV id="message"></DIV>
     <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
     <script type="text/javascript">
+      var i = 0;
       window.onload = function() {
         cast.receiver.logger.setLevelValue(0);
         window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
@@ -94,7 +95,7 @@ limitations under the License.
       // utility function to display the text message in the input field
       function displayText(text) {
         console.log(text);
-        document.getElementById("message").innerHTML='Saving note: ' + text;
+        document.getElementById("message").innerHTML += '<br/>Note ' + (++i) + ': ' + text;
         window.castReceiverManager.setApplicationState(text);
       };
     </script>
